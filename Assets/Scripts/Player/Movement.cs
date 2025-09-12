@@ -6,10 +6,10 @@ using System;
 public class Movement : MonoBehaviour
 {
 
- public   float horizontalInput;
- public   float moveSpeed = 5f;
+    float horizontalInput;
+    public float moveSpeed = 5f;
     bool isFacingRight = false;
- public   float jumpPower = 5f;
+    public float jumpPower = 5f;
     bool isGrounded = false;
 
     Rigidbody2D rb;
