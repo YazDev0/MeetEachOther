@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 8623087642097055216}
   - component: {fileID: 4765887655103660813}
   - component: {fileID: -3893189961810585847}
-  - component: {fileID: -3222083039821489085}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player2
@@ -431,20 +430,6 @@ MonoBehaviour:
   jumpPower: 7
   isFacingRight: 0
   isGrounded: 0
---- !u!114 &-3222083039821489085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633116285855993314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fb52e61236ccd74398daced4f3dab79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 1
-  localOffset: {x: 0, y: 1.2, z: 0}
 --- !u!1 &4347299116322118229
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,7 +622,7 @@ GameObject:
   - component: {fileID: 6356552182878502039}
   m_Layer: 0
   m_Name: HEAD
-  m_TagString: Player2
+  m_TagString: NameTag2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -670,8 +655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fb52e61236ccd74398daced4f3dab79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
-  localOffset: {x: 0, y: 1.2, z: 0}
+  fontSize: 10
 --- !u!1 &7880787149029550695
 GameObject:
   m_ObjectHideFlags: 0

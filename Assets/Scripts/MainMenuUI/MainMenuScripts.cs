@@ -5,21 +5,37 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScripts : MonoBehaviour
 {
-    // · Õ„Ì· „‘Âœ «Œ Ì«— «·√”„«¡
+
+    public GameObject mainMenuPanel;
+    public GameObject settingsPanel;
+    public string gameSceneName = "ChoseName";
+
+    void Start()
+    {
+        Time.timeScale = 1f;
+        if (mainMenuPanel) mainMenuPanel.SetActive(true);
+        if (settingsPanel) settingsPanel.SetActive(false);
+    }
+
     public void StartGame()
     {
-        SceneManager.LoadScene("ChoseName"); // «”„ „‘Âœ «Œ Ì«— «·«”„«¡
+        SceneManager.LoadScene(gameSceneName);
     }
 
-    // «·Œ—ÊÃ „‰ «··⁄»…
-    public void ExitGame()
-    {
-        Application.Quit(); // Ì€·ﬁ «· ÿ»Ìﬁ
-    }
-
-    // ·Ê ﬂ«‰ ›Ì ≈⁄œ«œ«  Ì„ﬂ‰ Ê÷⁄ ﬂÊœ Â‰« ·· ‰ﬁ· ≈·Ï „‘Âœ «·≈⁄œ«œ« 
     public void OpenSettings()
     {
-        SceneManager.LoadScene("SettingsScene"); // ≈–« ﬂ«‰ ›Ì „‘Âœ ··≈⁄œ«œ« 
+        if (mainMenuPanel) mainMenuPanel.SetActive(false);
+        if (settingsPanel) settingsPanel.SetActive(true);
     }
-}
+
+    public void CloseSettings()
+    {
+        if (settingsPanel) settingsPanel.SetActive(false);
+        if (mainMenuPanel) mainMenuPanel.SetActive(true);
+
+    }
+        public void ExitGame()
+    {
+        Application.Quit(); // Ì€·ﬁ «· ÿ»Ìﬁ
+    } 
+} 

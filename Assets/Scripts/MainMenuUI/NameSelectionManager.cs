@@ -23,7 +23,7 @@ public class NameSelectionManager : MonoBehaviour
         string player1Name = player1Input.text;
         if (string.IsNullOrEmpty(player1Name))
         {
-            player1Name = "«··«⁄» 1";
+            player1Name = "Player 1";
         }
         PlayerPrefs.SetString("Player1Name", player1Name);
 
@@ -31,7 +31,7 @@ public class NameSelectionManager : MonoBehaviour
         string player2Name = player2Input.text;
         if (string.IsNullOrEmpty(player2Name))
         {
-            player2Name = "«··«⁄» 2";
+            player2Name = "Player 2";
         }
         PlayerPrefs.SetString("Player2Name", player2Name);
 

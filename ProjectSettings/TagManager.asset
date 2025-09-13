@@ -8,6 +8,7 @@ TagManager:
   - hit
   - Player2
   - NameTag
+  - NameTag2
   layers:
   - Default
   - TransparentFX

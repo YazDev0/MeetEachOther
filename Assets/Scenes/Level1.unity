@@ -4240,7 +4240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8195054107155530959, guid: a1ff6e89094f5e2469c004b0dc27651c, type: 3}
       propertyPath: jumpPower
-      value: 11
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4267,8 +4267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fb52e61236ccd74398daced4f3dab79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
-  localOffset: {x: 0, y: 1.2, z: 0}
+  fontSize: 10
 --- !u!1001 &7590516798488384936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4354,5 +4353,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fb52e61236ccd74398daced4f3dab79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 1
-  localOffset: {x: 0, y: 1.2, z: 0}
+  fontSize: 10
