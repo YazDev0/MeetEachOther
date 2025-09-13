@@ -1,23 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class NameSelectionManager : MonoBehaviour
 {
-    public InputField player1NameInput;
-    public InputField player2NameInput;
+    public TMP_InputField player1Input;
+    public TMP_InputField player2Input;
+    public Button startButton;
 
-    public void StartGame()
+    void Start()
     {
-        //  Œ“Ì‰ «·√”„«¡ ›Ì PlayerPrefs
-        PlayerPrefs.SetString("Player1Name", player1NameInput.text);
-        PlayerPrefs.SetString("Player2Name", player2NameInput.text);
+        // —»ÿ “— «·»œ¡ „⁄ œ«·… Õ›Ÿ «·√”„«¡
+        startButton.onClick.AddListener(SavePlayerNames);
+    }
 
-        //  √ﬂÌœ «· Œ“Ì‰ («Œ Ì«—Ì)
-        PlayerPrefs.Save();
+    void SavePlayerNames()
+    {
+        // Õ›Ÿ «”„ «··«⁄» «·√Ê·
+        string player1Name = player1Input.text;
+        if (string.IsNullOrEmpty(player1Name))
+        {
+            player1Name = "«··«⁄» 1";
+        }
+        PlayerPrefs.SetString("Player1Name", player1Name);
 
-        // «·«‰ ﬁ«· ≈·Ï „‘Âœ «··⁄»…
-        UnityEngine.SceneManagement.SceneManager.LoadScene("LEVEL1");
+        // Õ›Ÿ «”„ «··«⁄» «·À«‰Ì
+        string player2Name = player2Input.text;
+        if (string.IsNullOrEmpty(player2Name))
+        {
+            player2Name = "«··«⁄» 2";
+        }
+        PlayerPrefs.SetString("Player2Name", player2Name);
+
+        // «·«‰ ﬁ«· ≈·Ï „‘Âœ level1
+        SceneManager.LoadScene("Level1");
     }
 }
