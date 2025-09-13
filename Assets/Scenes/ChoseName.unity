@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 256604203}
   - component: {fileID: 256604202}
   - component: {fileID: 256604201}
+  - component: {fileID: 256604205}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -321,6 +322,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &256604205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256604200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9faeea2defe458488631c3a8bd5e449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1NameInput: {fileID: 922181368}
+  player2NameInput: {fileID: 1274642588}
 --- !u!1 &469369275
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,7 +750,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 564458992}
-  - component: {fileID: 564458991}
   m_Layer: 0
   m_Name: ManagerNames
   m_TagString: Untagged
@@ -743,20 +757,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &564458991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 564458990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9faeea2defe458488631c3a8bd5e449, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1NameInput: {fileID: 922181368}
-  player2NameInput: {fileID: 1274642588}
 --- !u!4 &564458992
 Transform:
   m_ObjectHideFlags: 0
@@ -1000,7 +1000,7 @@ GameObject:
   - component: {fileID: 1115367776}
   - component: {fileID: 1115367777}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: player2text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1080,7 +1080,7 @@ GameObject:
   - component: {fileID: 1130438745}
   - component: {fileID: 1130438744}
   m_Layer: 5
-  m_Name: Placeholder
+  m_Name: Player2H
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1456,7 +1456,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 564458991}
+      - m_Target: {fileID: 256604205}
         m_TargetAssemblyTypeName: NameSelectionManager, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
@@ -1518,7 +1518,7 @@ GameObject:
   - component: {fileID: 2052270996}
   - component: {fileID: 2052270995}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: player1text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1598,7 +1598,7 @@ GameObject:
   - component: {fileID: 2086582963}
   - component: {fileID: 2086582962}
   m_Layer: 5
-  m_Name: Placeholder
+  m_Name: Player1H
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -2,23 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DisplayPlayerName : MonoBehaviour
 {
-    public Text playerNameText;  // ÇáäÕ ÇáĞí ÓíÙåÑ İæŞ ÑÃÓ ÇááÇÚÈ
+   public Text playerNameText;  // ÇáäÕ ÇáĞí ÓíÙåÑ İæŞ ÑÃÓ ÇááÇÚÈ
 
     void Start()
     {
+        if (playerNameText == null)
+        {
+            Debug.LogError("playerNameText is not assigned! Please assign it in the Inspector.");
+            return; // äæŞİ ÇáÓßÑÈÊ ÅĞÇ áã íÊã ÑÈØ ÇáÜ Text
+        }
+
         // ÇÓÊÑÌÇÚ ÇáÃÓãÇÁ ãä PlayerPrefs
         string player1Name = PlayerPrefs.GetString("Player1Name", "Player 1");
         string player2Name = PlayerPrefs.GetString("Player2Name", "Player 2");
 
-        // ÊÚííä ÇáÃÓãÇÁ ááÇÚÈíä ÍÓÈ ÇáßÇÆä
-        if (gameObject.name == "Player1")
+        // ÇáÊÍŞŞ ãä ÇáÊÇŞ áÚÑÖ ÇáÇÓã ÇáãäÇÓÈ
+        if (gameObject.CompareTag("Player"))  // ÅĞÇ ßÇä ÇáßÇÆä íÍãá ÊÇŞ "Player"
         {
             playerNameText.text = player1Name;  // ÚÑÖ ÇÓã Player 1 İæŞ ÑÃÓå
         }
-        else if (gameObject.name == "Player2")
+        else if (gameObject.CompareTag("Player2"))  // ÅĞÇ ßÇä ÇáßÇÆä íÍãá ÊÇŞ "Player2"
         {
             playerNameText.text = player2Name;  // ÚÑÖ ÇÓã Player 2 İæŞ ÑÃÓå
         }
