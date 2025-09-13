@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 7177874662629104708}
   - component: {fileID: 331458550677373157}
   - component: {fileID: 1302508218718956824}
+  - component: {fileID: 5277822347367326782}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -401,3 +402,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: Level2
+--- !u!114 &5277822347367326782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7002139572680935653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 227d94ab5fed9e347a1f3b882cffb8ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNameText: {fileID: 0}
