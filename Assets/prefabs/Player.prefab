@@ -557,6 +557,10 @@ MonoBehaviour:
   jumpPower: 7
   isFacingRight: 0
   isGrounded: 0
+  jumpSound: {fileID: 8300000, guid: 7cc057bed53baf34799f52aab3c84800, type: 3}
+  footstepSound: {fileID: 8300000, guid: df7087e4d8a8bb546bc08ce68632903f, type: 3}
+  footstepInterval: 0.3
+  audioSource: {fileID: 4021069449541248724}
 --- !u!114 &9111319316589204407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,7 +674,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 56266022b8a7bef47a3de2ee663a34b8, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

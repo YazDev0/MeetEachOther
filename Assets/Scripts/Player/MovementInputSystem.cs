@@ -5,33 +5,37 @@ using UnityEngine.InputSystem;
 
 public class MovementInputSystem : MonoBehaviour
 {
-
-    public float moveSpeed = 5f;
-    public float jumpPower = 5f;
+    public float moveSpeed = 7f;
+    public float jumpPower = 7f;
     public bool isFacingRight = false;
     public bool isGrounded = false;
 
+    // أصوات بسيطة
+    public AudioClip jumpSound;
+    public AudioClip footstepSound;
+    public float footstepInterval = 0.3f;
+
     Rigidbody2D rb;
     Animator animator;
+   public AudioSource audioSource;
     float horizontalInput;
+    float footstepTimer;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        // إضافة مصدر الصوت
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
     }
 
-    // Event: Player/Move  → OnMove (Dynamic Context)
     public void OnMove(InputAction.CallbackContext ctx)
     {
-        // لو Move نوعه Vector2:
         horizontalInput = ctx.ReadValue<Vector2>().x;
-
-        // لو خَليت Move محور واحد (1D Axis) بدّل للسطر التالي:
-        // horizontalInput = ctx.ReadValue<float>();
     }
 
-    // Event: Player/Jump  → OnJump (Dynamic Context)
     public void OnJump(InputAction.CallbackContext ctx)
     {
         if (ctx.performed && isGrounded)
@@ -39,6 +43,12 @@ public class MovementInputSystem : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             isGrounded = false;
             animator.SetBool("isJumping", true);
+
+            // صوت القفز
+            if (jumpSound != null)
+            {
+                audioSource.PlayOneShot(jumpSound);
+            }
         }
     }
 
@@ -47,6 +57,12 @@ public class MovementInputSystem : MonoBehaviour
         rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
         animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
         animator.SetFloat("yVelocity", rb.velocity.y);
+    }
+
+    void Update()
+    {
+        FlipSprite();
+        PlayFootstepSound();
     }
 
     void FlipSprite()
@@ -58,7 +74,19 @@ public class MovementInputSystem : MonoBehaviour
         }
     }
 
-    void Update() { FlipSprite(); }
+    void PlayFootstepSound()
+    {
+        // تشغيل صوت الخطوات عند الحركة على الأرض
+        if (isGrounded && Mathf.Abs(horizontalInput) > 0.1f)
+        {
+            footstepTimer -= Time.deltaTime;
+            if (footstepTimer <= 0f && footstepSound != null)
+            {
+                audioSource.PlayOneShot(footstepSound, 0.5f); // صوت أخف للخطوات
+                footstepTimer = footstepInterval;
+            }
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

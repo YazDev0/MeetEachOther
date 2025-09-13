@@ -430,6 +430,10 @@ MonoBehaviour:
   jumpPower: 7
   isFacingRight: 0
   isGrounded: 0
+  jumpSound: {fileID: 8300000, guid: 7cc057bed53baf34799f52aab3c84800, type: 3}
+  footstepSound: {fileID: 8300000, guid: df7087e4d8a8bb546bc08ce68632903f, type: 3}
+  footstepInterval: 0.3
+  audioSource: {fileID: 0}
 --- !u!1 &4347299116322118229
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,6 +660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fontSize: 10
+  textOffset: {x: 0, y: 2, z: 0}
 --- !u!1 &7880787149029550695
 GameObject:
   m_ObjectHideFlags: 0
