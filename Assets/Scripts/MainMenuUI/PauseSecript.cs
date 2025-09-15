@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class PauseSecript : MonoBehaviour
 {
 
-    public GameObject pausePanel;      // Panel ‘›«› ›ÌÂ √“—«—
+    public GameObject pausePanel;      
     public string mainMenuScene = "MainMenu";
 
     public static bool IsPaused { get; private set; }
@@ -42,8 +42,7 @@ public class PauseSecript : MonoBehaviour
         IsPaused = true;
     }
 
-    // Buttons
-    public void OpenSettingsInPause() { /* «› Õ Panel ≈⁄œ«œ«  ·Ê  »€Ï */ }
+    public void OpenSettingsInPause() { }
     public void BackToMainMenu()
     {
         Time.timeScale = 1f;

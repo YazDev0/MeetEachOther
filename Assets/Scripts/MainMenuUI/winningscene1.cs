@@ -12,6 +12,6 @@ public class winningscene1 : MonoBehaviour
 
     public void ExitGame()
     {
-        Application.Quit(); // Ì€·ﬁ «· ÿ»Ìﬁ
+        Application.Quit(); 
     }
 }

@@ -6,7 +6,7 @@ public class GameTimer : MonoBehaviour
 {
     public static GameTimer Instance;
 
-    [SerializeField] TMP_Text ui;        // (ÇÎÊíÇÑí) äÕ áÚÑÖ ÇáæŞÊ ÃËäÇÁ ÇááÚÈ
+    [SerializeField] TMP_Text ui;       
     public float Elapsed { get; private set; }
     bool running;
 

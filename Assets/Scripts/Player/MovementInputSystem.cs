@@ -10,7 +10,7 @@ public class MovementInputSystem : MonoBehaviour
     public bool isFacingRight = false;
     public bool isGrounded = false;
 
-    // أصوات بسيطة
+    
     public AudioClip jumpSound;
     public AudioClip footstepSound;
     public float footstepInterval = 0.3f;
@@ -26,7 +26,7 @@ public class MovementInputSystem : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-        // إضافة مصدر الصوت
+       
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.playOnAwake = false;
     }
@@ -44,7 +44,7 @@ public class MovementInputSystem : MonoBehaviour
             isGrounded = false;
             animator.SetBool("isJumping", true);
 
-            // صوت القفز
+            
             if (jumpSound != null)
             {
                 audioSource.PlayOneShot(jumpSound);
@@ -76,13 +76,13 @@ public class MovementInputSystem : MonoBehaviour
 
     void PlayFootstepSound()
     {
-        // تشغيل صوت الخطوات عند الحركة على الأرض
+       
         if (isGrounded && Mathf.Abs(horizontalInput) > 0.1f)
         {
             footstepTimer -= Time.deltaTime;
             if (footstepTimer <= 0f && footstepSound != null)
             {
-                audioSource.PlayOneShot(footstepSound, 0.5f); // صوت أخف للخطوات
+                audioSource.PlayOneShot(footstepSound, 0.5f); 
                 footstepTimer = footstepInterval;
             }
         }

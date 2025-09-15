@@ -7,13 +7,13 @@ public class BGM : MonoBehaviour
 
     public static BGM Instance;
 
-    [SerializeField] AudioSource src;        // ÇÓÍÈ AudioSource åäÇ (Ãæ íáÞØå ÊáÞÇÆíÇð)
-    [SerializeField] AudioClip defaultClip;  // (ÇÎÊíÇÑí) ãÞØÚ ÇáÈÏÇíÉ
+    [SerializeField] AudioSource src;       
+    [SerializeField] AudioClip defaultClip; 
     [Range(0f, 1f)] public float defaultVolume = 0.7f;
 
     void Awake()
     {
-        // ÇãäÚ ÇáÊßÑÇÑ Èíä ÇáÓíøäÇÊ
+   
         if (Instance != null) { Destroy(gameObject); return; }
         Instance = this;
         DontDestroyOnLoad(gameObject);
@@ -32,7 +32,7 @@ public class BGM : MonoBehaviour
         }
     }
 
-    // ÇÓÊÏÚöåÇ áÊÛííÑ ÇáãÞØÚ ÃËäÇÁ ÇááÚÈ (ÇÎÊíÇÑí)
+  
     public void Play(AudioClip clip)
     {
         if (!clip) return;
@@ -41,7 +41,7 @@ public class BGM : MonoBehaviour
         src.Play();
     }
 
-    // ÊÍßã ÈÇáÕæÊ (ãËáÇð ãä Slider)
+
     public void SetVolume(float v)
     {
         v = Mathf.Clamp01(v);
@@ -49,6 +49,5 @@ public class BGM : MonoBehaviour
         PlayerPrefs.SetFloat("BGM_VOL", v);
     }
 
-    // ÃæÞÝ ÇáãæÓíÞì (áæ ÊÈÛì ÊæÞÝåÇ Ýí Óíøä ãÚíä)
     public void StopMusic() => src.Stop();
 }

@@ -5,14 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Levels : MonoBehaviour
 {
-    public string nextSceneName = "Level2";  // ÇÓã ÇáãÓÊæì ÇáÊÇáí
-
+    public string nextSceneName = "Level2"; 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        // ÊÍŞŞ ÅĞÇ ßÇä ÇáÚäÕÑ ÇáĞí ÊáÇãÓ ãÚ ÇááÇÚÈ åæ ÇááÇÚÈ ÇáÂÎÑ
+       
         if (collision.CompareTag("Player"))
         {
-            // ÇáÇäÊŞÇá Åáì ÇáãÓÊæì ÇáÊÇáí
+            
             SceneManager.LoadScene(nextSceneName);
         }
     }
@@ -20,7 +19,7 @@ public class Levels : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // ÇáÇäÊŞÇá Åáì ÇáãÓÊæì ÇáÊÇáí ÚäÏ ÇáÊáÇãÓ Èíä ÇááÇÚÈíä
+           
             SceneManager.LoadScene(nextSceneName);
         }
     }
