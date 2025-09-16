@@ -11,7 +11,7 @@ public class Levels : MonoBehaviour
        
         if (collision.CompareTag("Player"))
         {
-            
+            UnlockNewLevel();
             SceneManager.LoadScene(nextSceneName);
         }
     }
@@ -19,8 +19,18 @@ public class Levels : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-           
+            UnlockNewLevel();
             SceneManager.LoadScene(nextSceneName);
+        }
+    }
+
+    void UnlockNewLevel()
+    {
+        if (SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt("ReachedIndex"))
+        {
+            PlayerPrefs.SetInt("ReachedIndex", SceneManager.GetActiveScene().buildIndex + 1);
+            PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 1) + 1);
+            PlayerPrefs.Save();
         }
     }
 }
