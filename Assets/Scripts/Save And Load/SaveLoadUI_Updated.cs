@@ -29,7 +29,6 @@ public class SaveLoadUI : MonoBehaviour
             saveSystem = FindObjectOfType<SaveSystem>();
             if (saveSystem == null)
             {
-                Debug.LogError("لم يتم العثور على SaveSystem! تأكد من وجوده في المشهد.");
             }
         }
         
@@ -56,7 +55,7 @@ public class SaveLoadUI : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("زر الحفظ غير محدد!");
+            Debug.LogWarning("");
         }
         
         // ربط زر الاستعادة
@@ -67,7 +66,7 @@ public class SaveLoadUI : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("زر الاستعادة غير محدد!");
+            Debug.LogWarning("");
         }
         
         // ربط زر الحذف (اختياري)
@@ -93,15 +92,15 @@ public class SaveLoadUI : MonoBehaviour
         if (saveSystem != null)
         {
             saveSystem.SavePlayerPosition();
-            ShowFeedbackMessage("تم حفظ الموقع والمشهد بنجاح!");
+            ShowFeedbackMessage("SAVE");
             
             // تحديث حالة الأزرار والمعلومات
             RefreshUI();
         }
         else
         {
-            Debug.LogError("نظام الحفظ غير متوفر!");
-            ShowFeedbackMessage("خطأ: نظام الحفظ غير متوفر!");
+            Debug.LogError("SAVE SYSTEM NOT AVAILABLE");
+            ShowFeedbackMessage("ERROR SAVE SYSTEM");
         }
     }
     
@@ -115,24 +114,24 @@ public class SaveLoadUI : MonoBehaviour
             if (saveSystem.HasSavedData())
             {
                 // إظهار لوحة التحميل إذا كانت متوفرة
-                ShowLoadingPanel("جاري تحميل المشهد والموقع...");
+                ShowLoadingPanel("LOADING...");
                 
                 saveSystem.LoadPlayerPosition();
                 
                 // إخفاء لوحة التحميل بعد فترة قصيرة
                 Invoke("HideLoadingPanel", 1f);
                 
-                ShowFeedbackMessage("تم الانتقال للموقع المحفوظ!");
+                ShowFeedbackMessage("TRANS SUCCESS!");
             }
             else
             {
-                ShowFeedbackMessage("لا توجد بيانات محفوظة!");
+                ShowFeedbackMessage("NO DATA!");
             }
         }
         else
         {
-            Debug.LogError("نظام الحفظ غير متوفر!");
-            ShowFeedbackMessage("خطأ: نظام الحفظ غير متوفر!");
+            Debug.LogError("SAVE SYSTEM NOT AVAILABE!");
+            ShowFeedbackMessage("ERROR!");
         }
     }
     
@@ -144,15 +143,15 @@ public class SaveLoadUI : MonoBehaviour
         if (saveSystem != null)
         {
             saveSystem.ClearSavedData();
-            ShowFeedbackMessage("تم حذف جميع البيانات المحفوظة!");
+            ShowFeedbackMessage("DELETED ALL DATA!");
             
             // تحديث حالة الأزرار والمعلومات
             RefreshUI();
         }
         else
         {
-            Debug.LogError("نظام الحفظ غير متوفر!");
-            ShowFeedbackMessage("خطأ: نظام الحفظ غير متوفر!");
+            Debug.LogError("SAVE SYSTEM NOT AVAILABLE!");
+            ShowFeedbackMessage("SAVE SYSTEM NOT AVAILABLE!");
         }
     }
     
@@ -178,7 +177,7 @@ public class SaveLoadUI : MonoBehaviour
         }
         else
         {
-            ShowFeedbackMessage("نظام الحفظ غير متوفر!");
+            ShowFeedbackMessage("SAVE SYSTEM NOT AVAILABLE!");
         }
     }
     
@@ -246,7 +245,7 @@ public class SaveLoadUI : MonoBehaviour
     /// إظهار لوحة التحميل
     /// </summary>
     /// <param name="message">رسالة التحميل</param>
-    private void ShowLoadingPanel(string message = "جاري التحميل...")
+    private void ShowLoadingPanel(string message = "LOADING...")
     {
         if (loadingPanel != null)
         {
