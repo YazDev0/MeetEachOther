@@ -10,14 +10,14 @@ public class MovementInputSystem : MonoBehaviour
     public bool isFacingRight = false;
     public bool isGrounded = false;
 
-    
+
     public AudioClip jumpSound;
     public AudioClip footstepSound;
     public float footstepInterval = 0.3f;
 
     Rigidbody2D rb;
     Animator animator;
-   public AudioSource audioSource;
+    public AudioSource audioSource;
     float horizontalInput;
     float footstepTimer;
 
@@ -26,7 +26,7 @@ public class MovementInputSystem : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-       
+
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.playOnAwake = false;
     }
@@ -39,12 +39,12 @@ public class MovementInputSystem : MonoBehaviour
     public void OnJump(InputAction.CallbackContext ctx)
     {
         if (ctx.performed && isGrounded)
-        {
+        { 
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             isGrounded = false;
             animator.SetBool("isJumping", true);
 
-            
+
             if (jumpSound != null)
             {
                 audioSource.PlayOneShot(jumpSound);
@@ -76,13 +76,13 @@ public class MovementInputSystem : MonoBehaviour
 
     void PlayFootstepSound()
     {
-       
+
         if (isGrounded && Mathf.Abs(horizontalInput) > 0.1f)
         {
             footstepTimer -= Time.deltaTime;
             if (footstepTimer <= 0f && footstepSound != null)
             {
-                audioSource.PlayOneShot(footstepSound, 0.5f); 
+                audioSource.PlayOneShot(footstepSound, 0.5f);
                 footstepTimer = footstepInterval;
             }
         }
@@ -93,4 +93,7 @@ public class MovementInputSystem : MonoBehaviour
         isGrounded = true;
         animator.SetBool("isJumping", false);
     }
+
+
 }
+
